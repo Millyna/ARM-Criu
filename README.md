@@ -1,7 +1,11 @@
 # Criu and P.Haul on the Raspberry Pi 2
 
 Step 1:
-Arch Linux is not supported with Criu as of a lack of checkpoint and restore functionality within the Kernel, therefore a custom kernel needs to be built using, taken from the Criu installation page (https://criu.org/Installation). These will be under different headings in the config file:
+Arch Linux is not supported with Criu due to the lack of checkpoint and restore functionality within the Kernel. Therefore a custom kernel needs to be built.
+My version of the customer config can be pulled from this repo.
+
+Else, if you would like to do this yourself, taken from the Criu installation page (https://criu.org/Installation). 
+These will be under different headings in the config file:
 * General setup options
     * CONFIG_CHECKPOINT_RESTORE=y (Checkpoint/restore support)
     * CONFIG_NAMESPACES=y (Namespaces support)
@@ -21,11 +25,10 @@ Arch Linux is not supported with Criu as of a lack of checkpoint and restore fun
 * Other options
     * CONFIG_INOTIFY_USER=y (File systems -> Inotify support for userspace)
 
-My version of the customer config is here --- **Insert Link for files**
 
-Once the config has been created, full kernel needs to be built cross-compiling for ARM including modules and firmware.
+Once the config has been created, full kernel needs to be built cross-compiled for ARM including modules and firmware.
 
-Custom images from the kernel and customer modules need to be put onto the Raspberry Pi, then rebooted to the new Kernel.
+Custom images from the kernel and custom modules need to be put onto the Raspberry Pi, then rebooted to the new Kernel.
 
 Step 2:
 Download and install criu:
